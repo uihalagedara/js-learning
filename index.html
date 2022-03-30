@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+    <script>
+
+        function Vehicle(name) {
+            Vehicle.INSTANCE++;
+            this.name =name;
+        }
+
+         //stativ property
+         Vehicle.INSTANCE=0;
+
+        Vehicle.prototype.getname = function () {
+            return this.name;
+        }
+
+        function Car (name, model) {
+            this.model = model;
+            Vehicle.call(this, name);
+        }
+
+        Car.prototype = Object.create(Vehicle.prototype);
+        Car.prototype.constructor = Car;
+
+        Car.prototype.getModel = function () {
+            return this.model;
+        }
+
+        const car1 = new Car('toyota', 'sedan');
+        const car2 = new Car('nissan', 'hachback');
+        console.log(Vehicle.INSTANCE)
+
+    </script>
+</body>

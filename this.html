@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+    <script>
+
+        name = 'jhon';
+
+        function print() {
+            console.log(this.name);
+        }
+
+        print();
+
+        const jane = {
+            name: 'jane',
+            print: print,
+        };
+
+        jane.print();
+
+        print.call(jane);
+
+    </script>
+</body>
